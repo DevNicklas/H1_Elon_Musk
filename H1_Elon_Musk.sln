@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H1_Elon_Musk", "H1_Elon_Musk\H1_Elon_Musk.csproj", "{530C4519-7307-44FE-854D-185C612A8D03}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{530C4519-7307-44FE-854D-185C612A8D03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{530C4519-7307-44FE-854D-185C612A8D03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{530C4519-7307-44FE-854D-185C612A8D03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{530C4519-7307-44FE-854D-185C612A8D03}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A5F6D120-486A-411A-83A3-15075A4858A6}
+	EndGlobalSection
+EndGlobal
