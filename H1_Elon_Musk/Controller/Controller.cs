@@ -13,16 +13,19 @@ namespace H1_Elon_Musk
     /// </summary>
     internal class Controller
     {
+
+        Display display = new Display();
         /// <summary>
         /// Starts the controller
         /// </summary>
         public void Start()
         {
+
             // White Racer RC Car
             Battery whiteRacerBattery = new Battery("AXO819", 100);
-            Display whiteRacerDisplay = new Display(0, whiteRacerBattery);
-            RCCar whiteRacer = new RCCar("The White Racer", "White", whiteRacerBattery, whiteRacerDisplay);
-            whiteRacerDisplay.UpdateDisplay(whiteRacerBattery.State);
+            display.BatteryLevel = whiteRacerBattery.Level;
+            RCCar whiteRacer = new RCCar("The White Racer", "White", whiteRacerBattery);
+            display.UpdateDisplay();
 
             // Get pressed key by user
             UserInput userInput = new UserInput();
@@ -43,7 +46,7 @@ namespace H1_Elon_Musk
                         if (whiteRacer.Battery.State == Battery.BatteryState.Empty)
                         {
                             ChargeRCCar(whiteRacer);
-                            whiteRacer.Display.UpdateDisplay(whiteRacer.Battery.State);
+                            display.UpdateDisplay();
                         }
                         break;
                 }
@@ -58,12 +61,14 @@ namespace H1_Elon_Musk
         /// <param name="rcCar"></param>
         private void Drive(RCCar rcCar)
         {
+
             // Drives car if the battery isn't empty
-            if(rcCar.Battery.State == Battery.BatteryState.Charged)
+            if (rcCar.Battery.State == Battery.BatteryState.Charged)
             {
                 rcCar.Battery.Level--;
-                rcCar.Display.Battery.Level = rcCar.Battery.Level;
-                rcCar.Display.MetersDriven += 20;
+                display.BatteryLevel = rcCar.Battery.Level;
+
+                display.MetersDriven += 20;
 
                 // Sets the battery state to empty, if the battery level less than 1
                 if(rcCar.Battery.Level < 1)
@@ -71,7 +76,7 @@ namespace H1_Elon_Musk
                     rcCar.Battery.State = Battery.BatteryState.Empty;
                 }
             }
-            rcCar.Display.UpdateDisplay(rcCar.Battery.State);
+            display.UpdateDisplay();
         }
 
         /// <summary>
@@ -79,10 +84,11 @@ namespace H1_Elon_Musk
         /// </summary>
         public void ChargeRCCar(RCCar rcCar)
         {
+
             rcCar.Battery.State = BatteryState.Charged;
             rcCar.Battery.Level = 100;
-            rcCar.Display.Battery.Level = 100;
-            rcCar.Display.MetersDriven = 0;
+            display.BatteryLevel = 100;
+            display.MetersDriven = 0;
         }
     }
 }

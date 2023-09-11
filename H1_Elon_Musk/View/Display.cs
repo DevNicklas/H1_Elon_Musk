@@ -8,23 +8,12 @@ using System.Threading.Tasks;
 namespace H1_Elon_Musk
 {
     /// <summary>
-    /// Class <see cref="Display"/> represents a display, which an instance of <see cref="RCCar"/> uses for displaying
+    /// Class <see cref="Display"/> represents a display
     /// </summary>
     internal class Display
     {
         private ushort _metersDriven;
-        private Battery _battery;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Display"/> class, using multiple arguments
-        /// </summary>
-        /// <param name="metersDriven">meters the <see cref="RCCar"/> has driven</param>
-        /// <param name="batteryLevel">battery level of the <see cref="RCCar"/>'s battery level</param>
-        public Display(ushort metersDriven, Battery battery)
-        {
-            _metersDriven = metersDriven;
-            _battery = battery;
-        }
+        private ushort _batteryLevel;
 
         public ushort MetersDriven
         {
@@ -32,25 +21,25 @@ namespace H1_Elon_Musk
             set { _metersDriven = value; }
         }
 
-        public Battery Battery
+        public ushort BatteryLevel
         {
-            get { return _battery; }
-            set { _battery = value; }
+            get { return _batteryLevel; }
+            set { _batteryLevel = value; }
         }
 
         /// <summary>
-        /// Updates the <see cref="RCCar"/>'s display
+        /// Updates the GUI or also called Display
         /// </summary>
-        public void UpdateDisplay(Battery.BatteryState state)
+        public void UpdateDisplay()
         {
             Console.Clear();
 
             // When the battery is charged
-            if (state == Battery.BatteryState.Charged)
+            if (_batteryLevel > 0)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Bilen har kørt: " + _metersDriven + " meter");
-                Console.WriteLine("Battries kan holde til: " + _battery.Level*20 + " meter");
+                Console.WriteLine("Battries kan holde til: " + _batteryLevel*20 + " meter");
             }
 
             // When the battery is empty

@@ -14,7 +14,6 @@ namespace H1_Elon_Musk
         private string _name;
         private string _color;
         private Battery _battery;
-        private Display _display;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RCCar"/> class, using multiple arguments
@@ -23,12 +22,11 @@ namespace H1_Elon_Musk
         /// <param name="color">color of car</param>
         /// <param name="battery">battery in the car</param>
         /// <param name="display">display which the car uses</param>
-        public RCCar(string name, string color, Battery battery, Display display)
+        public RCCar(string name, string color, Battery battery)
         {
             _name = name;
             _color = color;
             _battery = battery;
-            _display = display;
         }
 
         public string Name
@@ -53,12 +51,6 @@ namespace H1_Elon_Musk
         {
             get { return _battery; }
             set { _battery = value; }
-        }
-
-        public Display Display
-        {
-            get { return _display; }
-            set { _display = value; }
         }
     }
 }
