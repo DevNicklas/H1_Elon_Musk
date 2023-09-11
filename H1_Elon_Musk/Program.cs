@@ -10,6 +10,8 @@ namespace H1_Elon_Musk
     {
         static void Main(string[] args)
         {
+            Controller ctrl = new Controller();
+            ctrl.Start();
         }
     }
 }
